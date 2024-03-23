@@ -20,7 +20,11 @@ class Leilao {
     }
 
     public void finalizarLeilao() {
-        this.estado = EstadoLeilao.FINALIZADO;
+        if(this.estado == EstadoLeilao.EXPIRADO || this.estado == EstadoLeilao.ABERTO){
+            this.estado = EstadoLeilao.FINALIZADO;
+        } else {
+            throw new Error("");
+        }
     }
 
     public boolean leilaoEstaInativo(){

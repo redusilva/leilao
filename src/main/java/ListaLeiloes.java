@@ -35,18 +35,14 @@ public class ListaLeiloes {
 
             Leilao leilao = new Leilao(nome, lanceInicial, data);
 
-            //System.out.println("Antes" + estado);
-
-            // Abre o leilão se estiver inicialmente inativo
             if (estado == EstadoLeilao.ABERTO) {
                 leilao.abrirLeilao();
             } else if (estado == EstadoLeilao.FINALIZADO) {
+                leilao.abrirLeilao();
                 leilao.finalizarLeilao();
             } else if(estado == EstadoLeilao.EXPIRADO){
                 leilao.expirarLeilao();
             }
-
-            // System.out.println("Depois " + leilao.getEstado());
 
             leiloes.add(leilao);
         }
