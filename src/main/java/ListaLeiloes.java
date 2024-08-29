@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class ListaLeiloes {
     private List<Leilao> leiloes;
+    CustomDateTime customDateTime = new CustomDateTime();
 
     public ListaLeiloes() {
         this.leiloes = new ArrayList<>();
@@ -22,7 +23,7 @@ public class ListaLeiloes {
         return leiloes;
     }
 
-    public void gerarListaAleatoria(int tamanho) {
+    public void gerarListaAleatoria(int tamanho) throws Exception {
         Random random = new Random();
 
         for (int i = 0; i < tamanho; i++) {
@@ -41,6 +42,7 @@ public class ListaLeiloes {
                 leilao.abrirLeilao();
                 leilao.finalizarLeilao();
             } else if(estado == EstadoLeilao.EXPIRADO){
+                leilao.setDataExpiracao(this.customDateTime.parseDate("1999-10-02"));
                 leilao.expirarLeilao();
             }
 
